@@ -233,10 +233,9 @@
 <span id="8"></span>
 ## 🚀8. 트러블 슈팅
 <details>
-  <summary><b>공정 로직 쓰레드 에러</b></summary>
+  <summary><b>프론트 우선순위 에러</b></summary>
   <b>&gt; 현상</b><br>
-  다음의 코드에서 Thread Pool이 2개가 생성되어 있고, 1공정의 생산 쓰레드인 productionFuture가 종료됨과 동시에 메세지를 보내는 쓰레드인 sendFuture를 종료시키기 때문에 1공정이 모두 종료된 후 2공정 메서드가 시작될 것이라고 생각하였지만, 1공정 시작 메서드에서 productionFuture와 sendFuture는 독립적으로 돌아가고 바로 2공정 메서드(processSecond)를 실행시키고 2공정 메서드 안에서 productionFuture와 sendFuture에 또 다시 새로운 future가 들어가 쓰레드의 충돌이 나는 것이라고 생각 됨<br><br>
-  또한 productionFuture가 종료가 된 다음 processSecond()를 호출하기 위해 productionFuture.get()을 사용하게 되면, productionFuture의 작업이 끝날 때까지 Block 되기 때문에 sendFuture가 실행되지 않아 클라이언트가 메세지를 받을 수 없었음
+  완성된 결과물에 웹을 꾸미는 과정에 페이지업하는 버튼의 정렬 불가 -> 인라인 스타일 시트로 강제 정렬
   
   ```java
   ```
